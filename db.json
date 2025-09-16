@@ -1,0 +1,94 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "João Silva Andrade",
+      "email": "joao@email.com",
+      "telefone": "85997917019",
+      "cpfCnpj": "12345678900",
+      "cidade": "SÃO PAULO",
+      "uf": "SP",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "2",
+      "nome": "Maria Souza Silva",
+      "email": "maria@email.com",
+      "telefone": "85997918030",
+      "cpfCnpj": "123.456.789-00",
+      "cidade": "FORTALEZA",
+      "uf": "CE",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "5",
+      "nome": "Pedro Lima Junior",
+      "email": "pedro@email.com",
+      "telefone": "85997917016",
+      "cpfCnpj": "123.456.789-00",
+      "cidade": "BELÉM",
+      "uf": "PA",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "8",
+      "nome": "Rafael Gomes",
+      "email": "rafael@email.com",
+      "telefone": "85997917016",
+      "cpfCnpj": "123.456.789-00",
+      "dataRegistro": "01/01/2020",
+      "cidade": "PORTO ALEGRE",
+      "uf": "RS"
+    },
+    {
+      "id": "9",
+      "nome": "Beatriz Rocha",
+      "email": "beatriz@email.com",
+      "telefone": "85997917016",
+      "cpfCnpj": "123.456.789-00",
+      "dataRegistro": "01/01/2020",
+      "cidade": "RECIFE",
+      "uf": "PE"
+    },
+    {
+      "id": "11",
+      "nome": "Juliana Alves",
+      "email": "juliana@email.com",
+      "telefone": "85997917016",
+      "cpfCnpj": "123.456.789-00",
+      "cidade": "AMPARO DO SÃO FRANCISCO",
+      "uf": "SE",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "13",
+      "nome": "Max da Silva Albuquerque",
+      "email": "maxdsalbuquerque@gmail.com",
+      "telefone": "86870869050",
+      "cpfCnpj": "54065406549",
+      "cidade": "EUSÉBIO",
+      "uf": "CE",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "14",
+      "nome": "Juliana Duarte",
+      "email": "juhmulti@gmail.com",
+      "telefone": "85997915498",
+      "cpfCnpj": "08090998999",
+      "cidade": "JUAZEIRO DO NORTE",
+      "uf": "CE",
+      "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "15",
+      "nome": "Davi Lucas Duarte ",
+      "email": "davi@gmail.com",
+      "telefone": "85258920090",
+      "cpfCnpj": "90909909997",
+      "cidade": "AMAJARI",
+      "uf": "RR",
+      "dataRegistro": "16/09/2025"
+    }
+  ]
+}

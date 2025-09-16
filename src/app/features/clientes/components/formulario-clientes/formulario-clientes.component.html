@@ -1,0 +1,63 @@
+<h2 class="title">{{ clienteForm.value.id ? 'Editar Cliente' : 'Novo Cliente' }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()" class="form-container">
+
+    <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" placeholder="Digite o nome">
+      <mat-error *ngIf="clienteForm.get('nome')?.invalid">
+        {{ getErrorMessage('nome') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="exemplo@email.com">
+      <mat-error *ngIf="clienteForm.get('email')?.invalid">
+        {{ getErrorMessage('email') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Telefone -->
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="telefone" placeholder="(99) 99999-9999" mask="(00) 00000-0000">
+    </mat-form-field>
+
+    <!-- CPF/CNPJ -->
+    <mat-form-field appearance="outline">
+      <mat-label>CPF ou CNPJ</mat-label>
+      <input matInput formControlName="cpfCnpj" placeholder="000.000.000-00" mask="000.000.000-00||00.000.000/0000-00">
+      <mat-error *ngIf="clienteForm.get('cpfCnpj')?.invalid">
+        {{ getErrorMessage('cpfCnpj') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- UF -->
+    <mat-form-field appearance="outline">
+      <mat-label>UF</mat-label>
+      <mat-select formControlName="uf" (selectionChange)="carregarMunicipios($event.value)">
+        <mat-option *ngFor="let estado of estados" [value]="estado.sigla">
+          {{ estado.sigla }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Cidade -->
+    <mat-form-field appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <mat-select formControlName="cidade">
+        <mat-option *ngFor="let m of municipios" [value]="m.nome">
+          {{ m.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit">Salvar</button>
+    </div>
+  </form>
+</mat-dialog-content>
