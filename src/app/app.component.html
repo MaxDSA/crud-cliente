@@ -3,10 +3,15 @@
     <span class="app-name">ClientList</span>
   </div>
 
-  <div class="center">
+  @if (authService.isAuthenticated()) {
+    <div class="center">
     <a mat-button routerLink="/clientes">
       <mat-icon fontIcon="contacts_product"></mat-icon> Clientes
     </a>
+    <div class="spacer"></div>
+    <button mat-button (click)="logout()">Logout</button>
   </div>
+  }
+  
 </mat-toolbar>
 <router-outlet></router-outlet>

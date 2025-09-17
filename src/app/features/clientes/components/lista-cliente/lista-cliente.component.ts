@@ -25,11 +25,14 @@ import { FormularioClientesComponent } from '../formulario-clientes/formulario-c
 import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
 import { NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../../core/auth/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lista-cliente',
   exportAs: 'app-lista-cliente',
   imports: [
+    CommonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -37,7 +40,7 @@ import { ToastrService } from 'ngx-toastr';
     MatIconButton,
     MatFabButton,
     NgxMaskPipe,
-  ],
+],
   providers: [
     { provide: MatPaginatorIntl, useValue: getPortuguesePaginatorIntl() },
     provideNgxMask(),
@@ -70,7 +73,8 @@ export class ListaClienteComponent implements OnInit, AfterViewInit, OnDestroy {
     private clienteService: ClienteService,
     private filtroService: FiltroClienteService,
     private dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public authService: AuthService
   ) {
     this.dataSource = new MatTableDataSource();
   }
@@ -79,10 +83,12 @@ export class ListaClienteComponent implements OnInit, AfterViewInit, OnDestroy {
     this.clienteService.getClientes().subscribe({
       next: (clientes) => {
         this.dataSource.data = clientes;
-      }, error: (err) => {
+        this.clienteService.setClientesArmazenados(clientes);
+      },
+      error: (err) => {
         this.toastr.error('Erro ao carregar clientes.');
         console.error('Erro ao carregar clientes:', err);
-      }
+      },
     });
 
     this.filtroSubscription = this.filtroService.termoBusca$.subscribe(
@@ -125,11 +131,13 @@ export class ListaClienteComponent implements OnInit, AfterViewInit, OnDestroy {
             if (index > -1) {
               this.dataSource.data[index] = clienteAlterado;
               this.dataSource._updateChangeSubscription();
+              this.clienteService.setClientesArmazenados(this.dataSource.data);
             }
-          }, error: (err) => {
+          },
+          error: (err) => {
             this.toastr.error('Erro ao criar cliente.');
             console.error('Erro ao atualizar cliente:', err);
-          }
+          },
         });
       } else {
         // criação
@@ -140,11 +148,13 @@ export class ListaClienteComponent implements OnInit, AfterViewInit, OnDestroy {
         this.clienteService.postCliente(result).subscribe({
           next: (novoCliente) => {
             this.dataSource.data = [...this.dataSource.data, novoCliente];
+            this.clienteService.setClientesArmazenados(this.dataSource.data);
             this.toastr.success('Cliente criado com sucesso!');
-          }, error: (err) => {
+          },
+          error: (err) => {
             this.toastr.error('Erro ao criar cliente.');
             console.error('Erro ao criar cliente:', err);
-          }
+          },
         });
       }
       dialogRef.close();
@@ -168,6 +178,7 @@ export class ListaClienteComponent implements OnInit, AfterViewInit, OnDestroy {
             this.dataSource.data = this.dataSource.data.filter(
               (c) => c.id !== cliente.id
             );
+            this.clienteService.setClientesArmazenados(this.dataSource.data);
             this.toastr.success('Cliente excluído com sucesso!');
           },
           error: (err) => {

@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from '../../../core/models/cliente.interface';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
+  //Observable criado para armazenar a lista de clientes para validação de CPF/CNPJ único
+  private clientesSubject = new BehaviorSubject<Cliente[]>([]);
+  clientes$ = this.clientesSubject.asObservable();
 
-  private apiUrl = 'http://localhost:3000/clientes'; // URL da sua API simulada
+  private apiUrl = 'http://localhost:3000/clientes';
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +31,13 @@ export class ClienteService {
   deleteCliente(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  get clientesArmazenados(): Cliente[] {
+    return this.clientesSubject.value;
+  }
+
+  setClientesArmazenados(lista: Cliente[]) {
+    this.clientesSubject.next(lista);
   }
 }

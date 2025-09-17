@@ -5,70 +5,60 @@
       "nome": "João Silva Andrade",
       "email": "joao@email.com",
       "telefone": "85997917019",
-      "cpfCnpj": "12345678900",
-      "cidade": "SÃO PAULO",
-      "uf": "SP",
-      "dataRegistro": "16/09/2025"
+      "cpfCnpj": "50405455564",
+      "cidade": "ABARÉ",
+      "uf": "BA",
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "2",
       "nome": "Maria Souza Silva",
       "email": "maria@email.com",
       "telefone": "85997918030",
-      "cpfCnpj": "123.456.789-00",
+      "cpfCnpj": "12345678900355",
       "cidade": "FORTALEZA",
       "uf": "CE",
-      "dataRegistro": "16/09/2025"
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "5",
       "nome": "Pedro Lima Junior",
       "email": "pedro@email.com",
-      "telefone": "85997917016",
-      "cpfCnpj": "123.456.789-00",
+      "telefone": "85997915342",
+      "cpfCnpj": "12345678478",
       "cidade": "BELÉM",
       "uf": "PA",
-      "dataRegistro": "16/09/2025"
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "8",
       "nome": "Rafael Gomes",
       "email": "rafael@email.com",
       "telefone": "85997917016",
-      "cpfCnpj": "123.456.789-00",
-      "dataRegistro": "01/01/2020",
+      "cpfCnpj": "12345678900111",
       "cidade": "PORTO ALEGRE",
-      "uf": "RS"
+      "uf": "RS",
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "9",
       "nome": "Beatriz Rocha",
       "email": "beatriz@email.com",
       "telefone": "85997917016",
-      "cpfCnpj": "123.456.789-00",
-      "dataRegistro": "01/01/2020",
+      "cpfCnpj": "12345678900119",
       "cidade": "RECIFE",
-      "uf": "PE"
+      "uf": "PE",
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "11",
       "nome": "Juliana Alves",
       "email": "juliana@email.com",
       "telefone": "85997917016",
-      "cpfCnpj": "123.456.789-00",
+      "cpfCnpj": "12345678900888",
       "cidade": "AMPARO DO SÃO FRANCISCO",
       "uf": "SE",
-      "dataRegistro": "16/09/2025"
-    },
-    {
-      "id": "13",
-      "nome": "Max da Silva Albuquerque",
-      "email": "maxdsalbuquerque@gmail.com",
-      "telefone": "86870869050",
-      "cpfCnpj": "54065406549",
-      "cidade": "EUSÉBIO",
-      "uf": "CE",
-      "dataRegistro": "16/09/2025"
+      "dataRegistro": "17/09/2025"
     },
     {
       "id": "14",
@@ -89,6 +79,36 @@
       "cidade": "AMAJARI",
       "uf": "RR",
       "dataRegistro": "16/09/2025"
+    },
+    {
+      "id": "17",
+      "nome": "Augusto Oliveira",
+      "email": "juhmulti@gmail.com",
+      "telefone": "85997917016",
+      "cpfCnpj": "12345674411199",
+      "cidade": "ALMAS",
+      "uf": "TO",
+      "dataRegistro": "17/09/2025"
+    },
+    {
+      "id": "18",
+      "nome": "Teste da Silva",
+      "email": "maxdsalbuquerque@gmail.com",
+      "telefone": "86997917016",
+      "cpfCnpj": "12345678901",
+      "cidade": "ALAGOA NOVA",
+      "uf": "PB",
+      "dataRegistro": "17/09/2025"
+    },
+    {
+      "id": "19",
+      "nome": "Maria das Neves",
+      "email": "teste@gmail.com",
+      "telefone": "85971456565",
+      "cpfCnpj": "12345678902",
+      "cidade": "BUJARI",
+      "uf": "AC",
+      "dataRegistro": "17/09/2025"
     }
   ]
 }

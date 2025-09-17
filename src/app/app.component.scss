@@ -3,7 +3,7 @@ mat-toolbar {
   justify-content: space-between;
   align-items: center;
 
-  .left{
+  .left {
     flex: 0.3;
   }
 
@@ -12,5 +12,9 @@ mat-toolbar {
     gap: 2rem;
     justify-content: start;
     flex: 2;
+  }
+
+  .spacer {
+    flex-grow: 1;
   }
 }
