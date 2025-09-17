@@ -8,6 +8,8 @@ Para este fim alguns componentes foram separados em partes menores no intuito de
 
 ## Como rodar a aplicação em servidor local?
 
+Ao clonar o projeto é crucial rodar o comando ``npm instal`` para que o o framework baixe os pacotes necessários.
+
 Para simular uma API rest foi utilizado a biblioteca json-server.
 Para subir o servidor do json-server rode o comando abaixo na pasta raiz do projeto:
 
