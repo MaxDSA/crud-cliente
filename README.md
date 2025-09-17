@@ -15,7 +15,7 @@ Para subir o servidor do json-server rode o comando abaixo na pasta raiz do proj
 json-server --watch db.json
 ```
 
-Após isso para subir o servidor do projeto angular rode o comando abaixo também n pasta raiz do projeto:
+Após isso para subir o servidor do projeto angular rode o comando abaixo em outro console também na pasta raiz do projeto:
 
 ```bash
 ng serve
@@ -42,5 +42,6 @@ O usuário ``user`` não possui acesso a funcionalidade de exclusão.
 
 Os acessos são:
 
-Usuários: admin e user
-Senha: 1234
+``Usuários: admin e user``
+
+``Senha: 1234``
