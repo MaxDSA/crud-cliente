@@ -22,6 +22,8 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { Cliente } from '../../../../core/models/cliente.interface';
 import { BrasilapiService } from '../../../../core/services/brasil-api.service';
+import { cpfCnpjUnicoValidator } from '../../../../shared/validators/cpfCnpjUnique.validator';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-formulario-clientes',
@@ -49,23 +51,31 @@ export class FormularioClientesComponent implements OnChanges {
   municipios: any;
 
   constructor(
+    private clienteService: ClienteService,
     private brasilApiService: BrasilapiService,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: Cliente | null
   ) {
     this.clienteForm = this.fb.group({
       id: [null],
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
       telefone: [''],
-      cpfCnpj: ['', Validators.required],
+      cpfCnpj: [
+        '',
+        [
+          Validators.required,
+          cpfCnpjUnicoValidator(this.clienteService, this.data?.id),
+        ],
+      ],
       cidade: [''],
       uf: [''],
     });
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.carregarUFs();
+
     if (this.data) {
       this.carregarMunicipios(this.data.uf);
       this.clienteForm.patchValue(this.data);
@@ -83,11 +93,13 @@ export class FormularioClientesComponent implements OnChanges {
   }
 
   onSubmit() {
+    this.clienteForm.get('cpfCnpj')?.updateValueAndValidity();
+    this.clienteForm.addControl(
+      'dataRegistro',
+      this.fb.control(new Date().toLocaleDateString())
+    );
+
     if (this.clienteForm.valid) {
-      this.clienteForm.addControl(
-        'dataRegistro',
-        this.fb.control(new Date().toLocaleDateString())
-      );
       this.formSubmit.emit(this.clienteForm.value);
       this.clienteForm.reset();
     } else {
@@ -102,6 +114,13 @@ export class FormularioClientesComponent implements OnChanges {
     }
     if (control?.hasError('email')) {
       return 'E-mail inválido';
+    }
+    if (control?.hasError('maxlength')) {
+      const maxLength = control.getError('maxlength').requiredLength;
+      return `Máximo de ${maxLength} caracteres`;
+    }
+    if (control?.hasError('cpfCnpjInvalido')) {
+      return 'CPF/CNPJ já cadastrado';
     }
     return '';
   }

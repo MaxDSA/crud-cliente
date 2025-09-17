@@ -50,7 +50,7 @@
       <button mat-icon-button color="primary" aria-label="Editar" (click)="openFormDialog(cliente)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" aria-label="Excluir" (click)="deleteCliente(cliente)">
+      <button mat-icon-button color="warn" *ngIf="authService.hasRole('admin')" aria-label="Excluir" (click)="deleteCliente(cliente)">
         <mat-icon>delete</mat-icon>
       </button>
     </td>
